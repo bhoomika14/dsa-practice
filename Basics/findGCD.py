@@ -3,6 +3,7 @@ def find_gcd(a, b):
         return b
     return find_gcd(b, a%b)
 
-print(f"GCD {find_gcd(20, 28)}")
+a = 20, b= 28
+print(f"GCD of {a}, {b} is {find_gcd(a, b)}")
 
 
