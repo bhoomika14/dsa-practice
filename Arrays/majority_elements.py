@@ -14,12 +14,25 @@ def find_majority(nums):
             hashMap[i] += 1
         else:
             hashMap[i] = 1
-
-    for k, v in hashMap.items():
-        if v>majority:
-            return k
-
+        
+        if hashMap[i]>majority:
+            return i
 
 
-nums = [3,2,3]
-print(find_majority(nums))
+# Approach 2: Moore Voting Algorithm - TC is O(N) and SC is O(1)
+def find_majority_element(nums):
+    candidate = 0 
+    count = 0
+    for i in range(len(nums)):
+        if count == 0:
+            candidate = nums[i]
+            count = 1
+        else:
+            if candidate == nums[i]:
+                count+=1
+            else:
+                count-=1
+    return candidate
+
+nums = [5, 5, 1, 5, 2, 5, 3, 5, 4, 5, 6, 5, 7]
+print(find_majority_element(nums))
